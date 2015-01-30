@@ -29,7 +29,7 @@
             %>
             <img src="<%= "fotos/"+fo.getNombre() %>" width="300px" height="300px"/>
             </br>
-            <a href="control?target=fotosid&op=delete&action=op&foto=<%= fo.getNombre() %>&idinmueble=<%= request.getAttribute("id")%>&id=<%= fo.getId() %>">Borrar</a>
+            <a href="control?target=fotos&op=delete&action=op&foto=<%= fo.getNombre() %>&idinmueble=<%= request.getAttribute("id")%>&id=<%= fo.getId() %>">Borrar</a>
             </br>
             </br>
             <%

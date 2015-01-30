@@ -26,7 +26,7 @@
                 <input type="file" name="archivo" required="true" accept="image/*" />
                 </br>
                 </br>
-                <input type="hidden" name="target" value="fotosid" />
+                <input type="hidden" name="target" value="fotos" />
                 <input type="hidden" name="op" value="insert" />
                 <input type="hidden" name="action" value="op" />
                 <input type="hidden" name="id" value="<%= id%>" />

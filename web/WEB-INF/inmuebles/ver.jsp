@@ -51,10 +51,21 @@
                                 out.print(d.getYear() + 1900 + "-" + d.getMonth() + 1 + "-" + d.getDate());
                             %>
                         </td>
-                        <td><a href="control?target=fotosid&op=insert&action=view&id=<%= in.getId()%>"><img class="ver" src="resources/images/nuevo.jpg"/></a></td>
-                        <td><a href="control?target=fotosid&op=update&action=view&id=<%= in.getId()%>"><img class="ver" src="resources/images/ver.jpg"/></a></td>
-                        <td><a href="control?target=inmueble&op=update&action=view&id=<%= in.getId()%>"><div class="verdiv"><img class="ver" src="resources/images/editar.png"/></div></a></td>
-                        <td><a href="control?target=inmueble&op=delete&action=op&id=<%= in.getId()%>"><div class="verdiv"><img class="ver" src="resources/images/borrar.jpg"/></div></a></td>
+                        <td>
+                            <a href="control?target=fotos&op=insert&action=view&id=<%= in.getId()%>">
+                                <img class="ver" src="resources/images/nuevo.jpg"/></a>
+                        </td>
+                        <td><a href="control?target=fotos&op=update&action=view&id=<%= in.getId()%>">
+                                <img class="ver" src="resources/images/ver.jpg"/></a>
+                        </td>
+                        <td>
+                            <a href="control?target=inmueble&op=update&action=view&id=<%= in.getId()%>">
+                                <div class="verdiv"><img class="ver" src="resources/images/editar.png"/></div></a>
+                        </td>
+                        <td>
+                            <a href="control?target=inmueble&op=delete&action=op&id=<%= in.getId()%>">
+                                <div class="verdiv"><img class="ver" src="resources/images/borrar.jpg"/></div></a>
+                        </td>
                     </tr>
                     <%
                         }

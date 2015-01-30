@@ -122,16 +122,17 @@ public class Controlador extends HttpServlet {
                                     destino = "control?target=inmueble&op=update&action=view";
                                 }
                             } else {
-                                if (target.equals("fotosid") && op.equals("insert") && action.equals("view")) {
+                                if (target.equals("fotos") && op.equals("insert") && action.equals("view")) {
                                     forward = true;
                                     request.setAttribute("id", request.getParameter("id"));
                                     destino = "WEB-INF/inmuebles/subirfotos.jsp";
                                 } else {
-                                    if (target.equals("fotosid") && op.equals("insert") && action.equals("op")) {
+                                    if (target.equals("fotos") && op.equals("insert") && action.equals("op")) {
                                         forward = false;
                                         String id = request.getParameter("id");
                                         Date d = new Date();
-                                        String nombre = "id_" + id + "_" + (d.getYear() + 1900) + "_" + (d.getMonth() + 1) + "_" + d.getDate() + "_" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds();
+                                        String nombre = "id_" + id + "_" + (d.getYear() + 1900) + "_" + (d.getMonth() + 1) 
+                                                + "_" + d.getDate() + "_" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds();
                                         response.setContentType("text/html;charset=UTF-8");
                                         Part archivoPost = request.getPart("archivo");
                                         String carpeta = getServletContext().getRealPath("/") + "fotos/";
@@ -158,7 +159,7 @@ public class Controlador extends HttpServlet {
                                         }
                                         destino = "control?target=inmueble&op=select&action=view";
                                     } else {
-                                        if (target.equals("fotosid") && op.equals("update") && action.equals("view")) {
+                                        if (target.equals("fotos") && op.equals("update") && action.equals("view")) {
                                             forward = true;
                                             String id = request.getParameter("id");
                                             ArrayList<Fotos> lis = fotosdelinmueble(id);
@@ -166,13 +167,13 @@ public class Controlador extends HttpServlet {
                                             request.setAttribute("fotos", lis);
                                             destino = "WEB-INF/inmuebles/verfotos.jsp";
                                         } else {
-                                            if (target.equals("fotosid") && op.equals("delete") && action.equals("op")) {
+                                            if (target.equals("fotos") && op.equals("delete") && action.equals("op")) {
                                                 forward = false;
                                                 Fotos fo = ModeloFoto.getobjeto(request.getParameter("id"));
                                                 ModeloFoto.delete(fo);
                                                 File file = new File(getServletContext().getRealPath("/") + "fotos/" + request.getParameter("foto"));
                                                 file.delete();
-                                                destino = "control?target=fotosid&op=update&action=view&id=" + request.getParameter("idinmueble");
+                                                destino = "control?target=fotos&op=update&action=view&id=" + request.getParameter("idinmueble");
                                             }
                                         }
                                     }
