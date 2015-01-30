@@ -1,5 +1,5 @@
 package com.izv.hibernate;
-// Generated 28-ene-2015 21:54:08 by Hibernate Tools 4.3.1
+// Generated 30-ene-2015 22:46:08 by Hibernate Tools 4.3.1
 
 
 

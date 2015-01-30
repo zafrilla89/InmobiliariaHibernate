@@ -92,6 +92,7 @@ public class Controlador extends HttpServlet {
                             in.setPrecio(new BigDecimal(request.getParameter("precio")));
                             Date horaActual = new Date();
                             in.setFechaalta(horaActual);
+                            in.setUsuario(request.getParameter("usuario"));
                             ModeloInmueble.insert(in);
                             destino = "control?target=inmueble&op=select&action=view";
                         } else {

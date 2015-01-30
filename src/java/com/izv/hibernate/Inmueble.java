@@ -1,5 +1,5 @@
 package com.izv.hibernate;
-// Generated 28-ene-2015 21:54:08 by Hibernate Tools 4.3.1
+// Generated 30-ene-2015 22:46:08 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -16,15 +16,17 @@ public class Inmueble  implements java.io.Serializable {
      private BigDecimal precio;
      private String direccion;
      private Date fechaalta;
+     private String usuario;
 
     public Inmueble() {
     }
 
-    public Inmueble(String tipo, BigDecimal precio, String direccion, Date fechaalta) {
+    public Inmueble(String tipo, BigDecimal precio, String direccion, Date fechaalta, String usuario) {
        this.tipo = tipo;
        this.precio = precio;
        this.direccion = direccion;
        this.fechaalta = fechaalta;
+       this.usuario = usuario;
     }
    
     public Integer getId() {
@@ -61,6 +63,13 @@ public class Inmueble  implements java.io.Serializable {
     
     public void setFechaalta(Date fechaalta) {
         this.fechaalta = fechaalta;
+    }
+    public String getUsuario() {
+        return this.usuario;
+    }
+    
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
 
