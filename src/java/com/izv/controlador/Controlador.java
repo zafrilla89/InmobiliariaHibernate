@@ -168,10 +168,10 @@ public class Controlador extends HttpServlet {
                                         } else {
                                             if (target.equals("fotosid") && op.equals("delete") && action.equals("op")) {
                                                 forward = false;
-                                                File file = new File(getServletContext().getRealPath("/") + "fotos/" + request.getParameter("foto"));
-                                                file.delete();
                                                 Fotos fo = ModeloFoto.getobjeto(request.getParameter("id"));
                                                 ModeloFoto.delete(fo);
+                                                File file = new File(getServletContext().getRealPath("/") + "fotos/" + request.getParameter("foto"));
+                                                file.delete();
                                                 destino = "control?target=fotosid&op=update&action=view&id=" + request.getParameter("idinmueble");
                                             }
                                         }

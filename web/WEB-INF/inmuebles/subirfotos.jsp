@@ -23,7 +23,7 @@
                 String id = (String) request.getAttribute("id");
             %>
             <form action="control" method="POST" enctype="multipart/form-data">
-                <input type="file" name="archivo" required="true" />
+                <input type="file" name="archivo" required="true" accept="image/*" />
                 </br>
                 </br>
                 <input type="hidden" name="target" value="fotosid" />
