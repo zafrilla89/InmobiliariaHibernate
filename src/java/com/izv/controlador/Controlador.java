@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -132,8 +133,10 @@ public class Controlador extends HttpServlet {
                                         forward = false;
                                         String id = request.getParameter("id");
                                         Date d = new Date();
+                                        Calendar today = Calendar.getInstance();
                                         String nombre = "id_" + id + "_" + (d.getYear() + 1900) + "_" + (d.getMonth() + 1) 
-                                                + "_" + d.getDate() + "_" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds();
+                                                + "_" + d.getDate() + "_" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds() +"_" 
+                                                + today.get(Calendar.MILLISECOND);
                                         response.setContentType("text/html;charset=UTF-8");
                                         Part archivoPost = request.getPart("archivo");
                                         String carpeta = getServletContext().getRealPath("/") + "fotos/";
