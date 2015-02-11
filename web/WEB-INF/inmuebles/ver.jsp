@@ -29,6 +29,7 @@
                         <th>DIRECCION</th>
                         <th>PRECIO</th>
                         <th>FECHA ALTA</th>
+                        <th>USUARIO</th>
                         <th colspan="2">FOTOS</th>
                         <th>MODIFICAR</th>
                         <th>BORRAR</th>
@@ -50,6 +51,9 @@
                                 Date d = in.getFechaalta();
                                 out.print(d.getYear() + 1900 + "-" + d.getMonth() + 1 + "-" + d.getDate());
                             %>
+                        </td>                 
+                        <td>
+                            <%= in.getUsuario()%>
                         </td>
                         <td>
                             <a href="control?target=fotos&op=insert&action=view&id=<%= in.getId()%>">
