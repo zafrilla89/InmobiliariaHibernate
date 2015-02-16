@@ -178,7 +178,33 @@ public class Controlador extends HttpServlet {
                                                 File file = new File(getServletContext().getRealPath("/") + "fotos/" + request.getParameter("foto"));
                                                 file.delete();
                                                 destino = "control?target=fotos&op=update&action=view&id=" + request.getParameter("idinmueble");
-                                            }
+                                            }else{
+                                                 if (target.equals("inmuebleandroid") && op.equals("insert") && action.equals("op")) {
+                                                    forward = true;
+                                                    Inmueble in = new Inmueble();
+                                                    in.setTipo(request.getParameter("tipo"));
+                                                    in.setDireccion(request.getParameter("direccion"));
+                                                    in.setPrecio(new BigDecimal(request.getParameter("precio")));
+                                                    Date horaActual = new Date();
+                                                    in.setFechaalta(horaActual);
+                                                    in.setUsuario(request.getParameter("usuario"));
+                                                    Integer id=ModeloInmueble.insert(in);
+                                                    request.setAttribute("id", id);
+                                                    destino = "WEB-INF/inmuebles/idinsertar.jsp";
+                                                 }else{
+                                                    if (target.equals("inmuebleandroid") && op.equals("select") && action.equals("view")) {
+                                                        forward = true;
+                                                        destino = "WEB-INF/inmuebles/listajsoninmuebles.jsp";
+                                                        request.setAttribute("datos", ModeloInmueble.get());
+                                                      }else{
+                                                        if (target.equals("fotosandroid") && op.equals("select") && action.equals("view")) {
+                                                            forward = true;
+                                                            destino = "WEB-INF/inmuebles/listajsonfotos.jsp";
+                                                            request.setAttribute("datos", ModeloFoto.get());
+                                                        }
+                                                    }
+                                                 }
+                                            }                                            
                                         }
                                     }
                                 }

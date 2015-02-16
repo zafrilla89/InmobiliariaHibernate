@@ -40,14 +40,15 @@ public class ModeloInmueble {
         session.close();
     }
    
-    public static void insert(Inmueble in){
+    public static Integer insert(Inmueble in){
         Session session = HibernateUtil.getSessionFactory().
                 openSession();
         session.beginTransaction();
-        session.save(in);
+        Integer id=(Integer) session.save(in);
         session.getTransaction().commit();
         session.flush();
         session.close();
+        return id;
     }
     
     public static Inmueble getobjeto(String id){
